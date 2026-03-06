@@ -1,0 +1,508 @@
+.radarSection {
+    background: var(--bg-base);
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 0;
+}
+
+.header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radarIconWrap {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    /* Amber */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.iconScan {
+    animation: pulseScan 3s infinite;
+}
+
+@keyframes pulseScan {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+.header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+/* Visualization Layout - Centered Stack Original */
+.radarVisualization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sourcesLayer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.sourcesLabel {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.nodesWrapper {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sourceNode {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.animateFloat1 {
+    animation: float 4s ease-in-out infinite;
+}
+
+.animateFloat2 {
+    animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+.animateFloat3 {
+    animation: float 4.2s ease-in-out infinite 1s;
+}
+
+/* Radar Core Assembly */
+.radarCore {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(3, 7, 18, 0.5);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.05);
+}
+
+.radarRings div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px dashed rgba(245, 158, 11, 0.15);
+}
+
+.ring1 {
+    width: 100px;
+    height: 100px;
+}
+
+.ring2 {
+    width: 200px;
+    height: 200px;
+}
+
+.ring3 {
+    width: 280px;
+    height: 280px;
+    border-style: solid !important;
+}
+
+.radarSweep {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom left;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.4) 0%, transparent 100%);
+    border-left: 2px solid rgba(245, 158, 11, 0.8);
+    animation: sweep 4s linear infinite;
+    z-index: 2;
+}
+
+@keyframes sweep {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.coreCenter {
+    position: relative;
+    z-index: 3;
+    width: 80px;
+    height: 80px;
+    background: var(--bg-card);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #f59e0b;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.coreLabel {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+}
+
+/* Data Hits */
+.dataHit {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #f59e0b;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f59e0b;
+    z-index: 3;
+    opacity: 0;
+}
+
+.hit1 {
+    top: 30%;
+    left: 25%;
+    animation: flashHit 4s infinite 3.5s;
+}
+
+.hit2 {
+    top: 60%;
+    left: 70%;
+    animation: flashHit 4s infinite 1.5s;
+}
+
+.hit3 {
+    top: 20%;
+    left: 60%;
+    animation: flashHit 4s infinite 0.5s;
+}
+
+@keyframes flashHit {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    10% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    20% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Ingestion Final Step - Reverted to flex-column to accept the flow down line */
+.injectionLayer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -1rem;
+    width: 100%;
+}
+
+.streamLine {
+    width: 2px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.streamLine::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #f59e0b;
+    box-shadow: 0 0 10px #f59e0b;
+    animation: flowDown 2s infinite linear 1s;
+}
+
+/* Output Data Container (Bottom Area) */
+.dataOutputContainer {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+}
+
+/* Cycling Opportunity Card (Landscape focus) */
+.opportunityCardContainer {
+    position: relative;
+    flex: 2;
+    /* takes up roughly 2/3rds width */
+    min-width: 500px;
+    display: grid;
+}
+
+.ideaCard {
+    grid-area: 1 / 1;
+    background: var(--bg-surface-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    align-self: start;
+}
+
+.ideaCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #f59e0b;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.cardActive {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.cardHidden {
+    opacity: 0;
+    transform: translateY(10px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ideaHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.ideaHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.zapIcon {
+    color: #f59e0b;
+}
+
+.tagScore {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+}
+
+.cardContentLandscape {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.cardMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.cardDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cardSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardLabel {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.cardValue {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.cardInsight,
+.cardSystem {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.cardSystem {
+    color: #3b82f6;
+    /* Accent blue */
+    font-weight: 500;
+}
+
+/* Signals Feed Outer */
+.signalsFeedOuter {
+    flex: 1;
+    /* takes remainder */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 280px;
+}
+
+.feedHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.signalsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-left: 1px dashed var(--border-color);
+    padding-left: 1rem;
+}
+
+.signalItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.signalItem::before {
+    content: '';
+    position: absolute;
+    left: -1.4rem;
+    top: 0.4rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+}
+
+.signalSource {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.signalText {
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    font-style: italic;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .dataOutputContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .opportunityCardContainer {
+        min-width: 100%;
+    }
+
+    .cardContentLandscape {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cardMeta {
+        flex-direction: row;
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1.5rem;
+    }
+
+    .signalsFeedOuter {
+        width: 100%;
+        margin-top: 1rem;
+        min-height: auto;
+    }
+}
