@@ -30,7 +30,7 @@ const CARDS_DATA = {
 
 const SIGNALS_DATA = {
     en: [
-        { type: 'growth', label: 'Growth Signal', source: 'Reddit /r/smallbusiness', text: '"We get plenty of website enquiries but most people disappear after asking for pricing."' },
+        { type: 'conversion', label: 'Conversion Signal', source: 'Reddit /r/smallbusiness', text: '"We get plenty of website enquiries but most people disappear after asking for pricing."' },
         { type: 'conversion', label: 'Conversion Signal', source: 'G2 Software Review', text: '"Our biggest issue is that enquiries come through email, WhatsApp and the website - it\'s hard to track and respond quickly."' },
         { type: 'demand', label: 'Demand Signal', source: 'Shopify Community Forum', text: '"Customers keep asking if we offer a subscription or monthly package, but we haven\'t set that up yet."' },
         { type: 'protection', label: 'Protection Signal', source: 'Google Business Review', text: '"I almost booked with another company because it took nearly a day to hear back."' },
@@ -46,8 +46,8 @@ const SIGNALS_DATA = {
 const TRANSLATIONS = {
     en: {
         radarTitle: 'Opportunity Radar',
-        radarDesc: 'The system continuously scans markets, conversations, and workflows to detect operational opportunities.',
-        sourcesAnalyzed: 'Sources Analyzed',
+        radarDesc: 'The system scans markets, conversations, and workflows to detect operational opportunities.',
+        sourcesAnalyzed: 'Signal Sources',
         analytics: 'SEARCHING',
         score: 'Score:',
         insight: 'Insight Discovered',

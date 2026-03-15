@@ -1,0 +1,346 @@
+.heroSection {
+    position: relative;
+    min-height: 75vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.heroShell {
+    position: relative;
+    z-index: 20;
+    width: min(1260px, calc(100vw - 72px));
+    margin: 0 auto;
+    padding: 5.5rem 0 2rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.96fr);
+    gap: clamp(0.2rem, 0.8vw, 0.72rem);
+    align-items: center;
+}
+
+.heroCopy {
+    max-width: 560px;
+    font-family: "Inter Tight", "Segoe UI", "Helvetica Neue", sans-serif;
+    z-index: 20;
+    padding-left: clamp(0rem, 0.5vw, 0.32rem);
+}
+
+.heroEyebrowRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0 0 1.5rem;
+}
+
+.heroEyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: rgba(163, 176, 204, 0.88);
+    margin: 0;
+    font-weight: 700;
+}
+
+.flowOpsMark {
+    width: 1.55rem;
+    height: 1.55rem;
+    display: block;
+    filter: drop-shadow(0 0 12px rgba(85, 183, 226, 0.18));
+}
+
+.heroTitle {
+    font-size: clamp(4.35rem, 7vw, 5.95rem);
+    line-height: 1.08;
+    margin: 0 0 1.35rem;
+    letter-spacing: -0.075em;
+    position: relative;
+    overflow: visible;
+    padding: 0.1em 0.1em 0.18em 0;
+}
+
+.heroTitleBase {
+    font-weight: 700;
+    color: #f8fafc;
+    display: block;
+    overflow: visible;
+}
+
+.heroTitleAccent,
+.heroTitleAccentTight {
+    font-weight: 800;
+    letter-spacing: -0.078em;
+    display: block;
+    line-height: 1.02;
+    padding: 0 0.02em 0.08em 0;
+    background: linear-gradient(180deg, #57C6C3 0%, #63A7EA 46%, #6C7AFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: visible;
+    transform: translateZ(0);
+    will-change: filter, background-position;
+}
+
+.heroTitleAccentTight {
+    margin-top: -0.02em;
+}
+
+.heroTitleCluster {
+    position: relative;
+    display: block;
+    overflow: visible;
+    padding: 0.06em 0.08em 0.18em 0;
+}
+
+.heroDescription {
+    font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+    line-height: 1.6;
+    color: rgba(203, 213, 225, 0.76);
+    margin: 0;
+    max-width: 540px;
+    font-weight: 400;
+}
+
+.heroVisual {
+    position: relative;
+    min-height: clamp(360px, 58vh, 680px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 12;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.desktopBeam {
+    position: absolute;
+    left: 39%;
+    top: 31%;
+    width: min(31vw, 470px);
+    height: 170px;
+    z-index: 18;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    overflow: visible;
+}
+
+.desktopBeamSvg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.desktopOutputCardsLayer {
+    position: absolute;
+    inset: 0;
+    z-index: 24;
+    pointer-events: none;
+}
+
+.desktopOutputCard {
+    position: absolute;
+}
+
+.systemCardShell {
+    min-width: 188px;
+    padding: 14px 18px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, rgba(16, 21, 31, 0.82), rgba(8, 10, 15, 0.94));
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.58);
+}
+
+.systemCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.systemCardEyebrow {
+    font-size: 0.54rem;
+    opacity: 0.42;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+}
+
+.systemCardDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+}
+
+.systemCardTitle {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.25;
+}
+
+.systemCardStatus {
+    font-size: 0.7rem;
+    margin-top: 3px;
+    font-weight: 600;
+}
+
+.heroVisualCluster {
+    position: absolute;
+    left: -10%;
+    top: 53%;
+    width: 1425px;
+    height: 960px;
+    transform: translate(-50%, -50%) scale(0.72);
+    transform-origin: center center;
+    pointer-events: none;
+}
+
+.splineStage {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.outputCardsLayer {
+    position: absolute;
+    inset: 0;
+    z-index: 22;
+    pointer-events: none;
+}
+
+.outputCard {
+    position: absolute;
+}
+
+.loader {
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    text-align: center;
+    pointer-events: none;
+}
+
+.heroMask {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 50%, transparent 20%, rgba(2, 3, 6, 0.3) 70%, #010204 100%);
+    z-index: 6;
+    pointer-events: none;
+}
+
+@media (max-width: 980px) {
+    .heroSection {
+        min-height: auto;
+    }
+
+    .heroShell {
+        width: min(100vw - 40px, 760px);
+        padding: 5rem 0 2rem;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .heroCopy {
+        max-width: 100%;
+        text-align: center;
+        order: 1;
+        padding-left: 0;
+    }
+
+    .heroEyebrow {
+        letter-spacing: 0.32em;
+    }
+
+    .heroEyebrowRow {
+        justify-content: center;
+    }
+
+    .heroDescription {
+        margin: 0 auto;
+    }
+
+    .heroVisual {
+        order: 2;
+        min-height: 340px;
+        margin-top: 0.5rem;
+    }
+
+    .desktopBeam {
+        display: none;
+    }
+
+    .desktopOutputCardsLayer {
+        display: none;
+    }
+
+    .heroVisualCluster {
+        left: 28%;
+        width: 1425px;
+        height: 960px;
+        transform: translate(-50%, -46%) scale(0.52);
+    }
+
+    .loader {
+        left: 38%;
+    }
+
+    .heroMask {
+        background: radial-gradient(circle at 50% 35%, transparent 18%, rgba(2, 3, 6, 0.24) 70%, #010204 100%);
+    }
+}
+
+@media (max-width: 640px) {
+    .heroShell {
+        width: min(100vw - 28px, 560px);
+        padding-top: 4.5rem;
+        gap: 1rem;
+    }
+
+    .heroTitle {
+        font-size: clamp(3rem, 13vw, 4.2rem);
+        padding-right: 0.04em;
+    }
+
+    .heroEyebrowRow {
+        gap: 0.65rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .flowOpsMark {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .systemCardShell {
+        min-width: 168px;
+        padding: 12px 15px;
+    }
+
+    .systemCardTitle {
+        font-size: 0.88rem;
+    }
+
+    .systemCardStatus {
+        font-size: 0.66rem;
+    }
+
+    .heroDescription {
+        font-size: 1rem;
+    }
+
+    .heroVisual {
+        min-height: 290px;
+    }
+
+    .heroVisualCluster {
+        left: 20%;
+        transform: translate(-50%, -45%) scale(0.44);
+    }
+
+    .loader {
+        left: 34%;
+    }
+}
